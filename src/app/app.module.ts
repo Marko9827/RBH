@@ -11,6 +11,7 @@ import { HomeFoodSliderComponent } from './home-food-slider/home-food-slider.com
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MatCardModule } from '@angular/material/card';
+import { ProductsCardsComponent } from './products-cards/products-cards.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MatCardModule } from '@angular/material/card';
     MenuComponent,
     CartComponent,
     HomeFoodSliderComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProductsCardsComponent
   ],
   imports: [
     BrowserModule,
