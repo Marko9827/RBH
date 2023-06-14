@@ -1,4 +1,4 @@
-javascript: front;
+ 
 var card = [],
 products = [
     {
@@ -17,4 +17,4 @@ products = [
   function addTcard(t = {}){
     card.push(t);
     console.log(card);
-  }
+  } 

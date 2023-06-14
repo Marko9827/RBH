@@ -1,14 +1,14 @@
 <div class="col mb-5" *ngFor="let prod of products">
-    <div class="card h-100" data-id="{{prod.id}}">
+    <div class="card h-100 card-f" data-id="{{prod.id}}"   >
         <!-- Product image-->
         <img class="card-img-top" src="{{prod.img}}" alt="..." />
         <!-- Product details-->
         <div class="card-body p-4">
             <div class="text-center">
                 <!-- Product name-->
-                <h5 class="fw-bolder">{{prod.title}}</h5>
+                <h5  class="fw-bolder">{{prod.title}}</h5>
                 <!-- Product price-->
-               {{prod.price}}
+               <span>{{prod.price}}</span>
             </div>
         </div>
         <!-- Product actions-->
