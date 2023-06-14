@@ -21,10 +21,18 @@ products = [
         "title":document.querySelector(`.card-f[id="${id}"] h5`).innerHTML,
         "price": document.querySelector(`.card-f[id="${id}"] span`).innerHTML
     });
-    document.querySelector(`.card-f[id="${id}"]`).addClass("added");
+    document.querySelector(`.card-f[id="${id}"]`).classList.add("added");
     document.querySelector(`.rounded-pill`).innerHTML = card.length;
     console.log(card);
   }
-
+function emptycard(){
+    card = [];
+    document.querySelectorAll(`.card-f`).forEach(function(f){
+        if(f.classList.contains("added")){
+             f.classList.remove("added");
+        }
+    });
+    document.querySelector(`.rounded-pill`).innerHTML = card.length;
+}
   
 
