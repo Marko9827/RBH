@@ -10,6 +10,8 @@ import { CartComponent } from './cart/cart.component';
 import { HomeFoodSliderComponent } from './home-food-slider/home-food-slider.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +20,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     MenuComponent,
     CartComponent,
     HomeFoodSliderComponent,
-    NavBarComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
