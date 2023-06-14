@@ -13,6 +13,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MatCardModule } from '@angular/material/card';
 import { ProductsCardsComponent } from './products-cards/products-cards.component';
 import { Routes } from '@angular/router';
+import { CardsModalComponent } from './cards-modal/cards-modal.component';
 
 const appRoute: Routes = [
   {path: 'Home', component: AppComponent},
@@ -27,7 +28,8 @@ const appRoute: Routes = [
     CartComponent,
     HomeFoodSliderComponent,
     NavBarComponent,
-    ProductsCardsComponent
+    ProductsCardsComponent,
+    CardsModalComponent
   ],
   imports: [
     BrowserModule,
