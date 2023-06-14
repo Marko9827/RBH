@@ -1,0 +1,13 @@
+.card-f:not(.added) .btn-remove-card {
+    display:none
+}
+
+.card-f:not(.added) .btn-remove-card {
+    
+}
+
+.btn-remove-card{
+    border-color:red;
+    color:red;
+}
+  
