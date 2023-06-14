@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  menuItems = [
-    { name: 'test', price: 45 } // after run from rest api
+  menuItems =  [
+     { name: 'test', price: 45 } // after run from rest api
   ];
   
   addToCart(item: any) {

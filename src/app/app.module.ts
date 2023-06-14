@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeFoodSliderComponent } from './home-food-slider/home-food-slider.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,24 @@ import { HomeFoodSliderComponent } from './home-food-slider/home-food-slider.com
     HomeComponent,
     MenuComponent,
     CartComponent,
-    HomeFoodSliderComponent
+    HomeFoodSliderComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+  http_a(url: '', callback: Function) {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        callback(data);
+      });
+  }
+}

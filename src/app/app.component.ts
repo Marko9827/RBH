@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+ 
+interface lang {
+    text: String
+}
 
 @Component({
   selector: 'app-root',
