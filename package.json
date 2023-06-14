@@ -1,7 +1,7 @@
 {
   "name": "rbh",
   "description": "RBH = Restoran brze hrane - Za faks II",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -23,6 +23,8 @@
     "@angular/router": "^16.1.0",
     "bootstrap": "^5.3.0",
     "bootstrap-icons": "^1.10.5",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -32,6 +34,7 @@
     "@angular/cli": "~16.1.0",
     "@angular/compiler-cli": "^16.1.0",
     "@types/jasmine": "~4.3.0",
+    "@types/node": "^20.3.1",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

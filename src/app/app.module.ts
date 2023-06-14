@@ -12,7 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MatCardModule } from '@angular/material/card';
 import { ProductsCardsComponent } from './products-cards/products-cards.component';
+import { Routes } from '@angular/router';
 
+const appRoute: Routes = [
+  {path: 'Home', component: AppComponent},
+  
+]
 
 @NgModule({
   declarations: [
