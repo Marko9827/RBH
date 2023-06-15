@@ -52,7 +52,7 @@ function generate_card_js(){
     for (const rijesponse of data) {
        
       djenerated += ` 
-      <div class="card mb-3"  >
+      <div class="card mb-3" data-id="${rijesponse.id}"  >
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="${rijesponse.img}" class="card-img" alt="${rijesponse.title}">

@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(/node_modules/bootstrap-icons/font/bootstrap-icons.min.css);
 @import url(/node_modules/bootstrap/dist/css/bootstrap.min.css);
+
+:root{
+    --orange: #cc8502 !important;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -53,7 +57,7 @@ body{
     background: black;
 }nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     background-color: #838383 !important;
-    background: #ffffff80 !important;
+    background: #fff !important;
 }
 
 /* f */
@@ -71,6 +75,7 @@ app-cards-modal {
 
 app-cards-modal .card {
     width: 330px !important;
+    height: 61px;
 }
 
 ::-webkit-scrollbar {
@@ -104,12 +109,54 @@ app-cards-modal h5{
 app-cards-modal .card-body {
     padding: 0px !important;
 }app-nav-bar * {
-    color: #cc8502 !important;
-    border-color: #cc8502 !important;
+    color: var(--orange) !important;
+    border-color: var(--orange)!important;
 }
 
 .rounded-pill{
-    background:#cc8502 !important;
+    background:var(--orange) !important;
 }
 
- .rounded-pill {}
+ .rounded-pill {}app-cards-modal img.card-img {
+    height: 51px;
+    object-fit:cover;
+    margin-left:5px;
+    position: absolute;
+    width: 100px;
+    top: 0px;
+    left: 0px;
+    margin-top: 3px;
+}
+
+app-cards-modal .card .row.no-gutters {
+    display:inline-flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 64px;
+}
+ 
+
+app-cards-modal .card  .col-md-4 {
+    width: 100px;
+}
+
+.row.no-gutters {}
+
+app-cards-modal .card  .col-md-8 {
+    position: absolute;
+    left: 100px;
+}
+
+app-cards-modal .card h5.card-title {
+    margin: 0px;
+}app-cards-modal .card {
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4)) !important;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4)) !important;
+  enable-background: new 0 0 512 512 !important;
+}
+
+app-nav-bar   {
+  position:sticky;
+  top:0px;
+}
