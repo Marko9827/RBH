@@ -70,7 +70,7 @@ app-cards-modal {
 }
 
 app-cards-modal .card {
-    width: 340px !important;
+    width: 330px !important;
 }
 
 ::-webkit-scrollbar {
@@ -88,3 +88,28 @@ app-cards-modal .card {
 ::-webkit-scrollbar-thumb:hover {
   background: white; 
 }
+
+/** {
+    overflow-x:hidden;
+}
+
+body{
+    overflow: hidden;
+}*/
+
+app-cards-modal h5{
+    font-weight:bold !important;
+}
+
+app-cards-modal .card-body {
+    padding: 0px !important;
+}app-nav-bar * {
+    color: #cc8502 !important;
+    border-color: #cc8502 !important;
+}
+
+.rounded-pill{
+    background:#cc8502 !important;
+}
+
+ .rounded-pill {}

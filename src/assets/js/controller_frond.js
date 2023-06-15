@@ -16,15 +16,21 @@ products = [
     }
   ];  
   function addTcard(idf){
-    var id = idf.getAttribute("id");
+    var id = idf.getAttribute("data-id");
     card.push({
         "id":id,
-        "title":document.querySelector(`.card-f[id="${id}"] h5`).innerHTML,
-        "price": document.querySelector(`.card-f[id="${id}"] span`).innerHTML
+        "title":document.querySelector(`.card-f[data-id="${id}"] h5`).innerHTML,
+        "price": document.querySelector(`.card-f[data-id="${id}"] span`).innerHTML,
+        "img":document.querySelector(`.card-f[data-id="${id}"] img`).getAttribute("src"),
     });
-    document.querySelector(`.card-f[id="${id}"]`).classList.add("added");
+    document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
+     console.log(card);
+    generate_card_js(card);    
     document.querySelector(`.rounded-pill`).innerHTML = card.length;
-    console.log(card);
+
+  }
+  function cardcardsdjenerator(j = []){
+
   }
 function emptycard(){
     card = [];
@@ -34,13 +40,14 @@ function emptycard(){
         }
     });
     document.querySelector(`.rounded-pill`).innerHTML = card.length;
+    generate_card_js();
 } 
 function generate_card_js(){
   var djenerated = "",
   card_generatorFront = document.querySelector("app-cards-modal");
   
 
-  
+    var data = card;
     
     for (const rijesponse of data) {
        
@@ -48,19 +55,18 @@ function generate_card_js(){
       <div class="card mb-3"  >
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="${API_URL}${rijesponse.img}"  alt="${rijesponse.title}">
+        <img src="${rijesponse.img}" class="card-img" alt="${rijesponse.title}">
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">${rijesponse.title}</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">${rijesponse.price}</small></p>
+           <p class="card-text"><small class="text-muted">${rijesponse.price}</small></p>
         </div>
       </div>
     </div>
   </div>`;
     }
-    card_generatorFront.innerHTML += djenerated;
+    card_generatorFront.innerHTML = djenerated;
   
 }
 function generateCards(){ 
