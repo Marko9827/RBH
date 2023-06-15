@@ -1,5 +1,5 @@
  
-const card = [],
+var card = [],
 API_URL = "https://test.localhost/APP32424259353/";
 products = [
     {
@@ -19,8 +19,8 @@ products = [
     var id = idf.getAttribute("id");
     card.push({
         "id":id,
-        "title":document.querySelector(`.card-f[data-id="${id}"] h5`).innerHTML,
-        "price": document.querySelector(`.card-f[data-id="${id}"] span`).innerHTML
+        "title":document.querySelector(`.card-f[id="${id}"] h5`).innerHTML,
+        "price": document.querySelector(`.card-f[id="${id}"] span`).innerHTML
     });
     document.querySelector(`.card-f[id="${id}"]`).classList.add("added");
     document.querySelector(`.rounded-pill`).innerHTML = card.length;
@@ -38,10 +38,9 @@ function emptycard(){
 function generate_card_js(){
   var djenerated = "",
   card_generatorFront = document.querySelector("app-cards-modal");
- 
-  fetch(API_URL).then((response) => response.json())
-  .then((data) => {
- 
+  
+
+  
     
     for (const rijesponse of data) {
        
@@ -62,7 +61,7 @@ function generate_card_js(){
   </div>`;
     }
     card_generatorFront.innerHTML += djenerated;
-  }); 
+  
 }
 function generateCards(){ 
   var djenerated = "",
@@ -75,7 +74,8 @@ function generateCards(){
     for (const rijesponse of data) {
        
       djenerated += ` 
-      <div class="card h-100f card-f" data-id="${rijesponse.id}"   > 
+      <app-cart class="card h-100f card-f"   data-id="${rijesponse.id}"  >
+ 
           <img class="card-img-top" src="${API_URL}${rijesponse.img}"  alt="${rijesponse.title}" /> 
           <div class="card-body p-4">
               <div class="text-center"> 
@@ -89,7 +89,7 @@ function generateCards(){
               <div class="text-center btn-remove-card"><a class="  btn btn-outline-dark mt-auto"   href="#" onclick="emptycard()" data-id="${rijesponse.id}"     >Remove from card</a></div>
   
           </div>
-      </div> `;
+      </app-cart>`;
     }
     card_generatorFront.innerHTML = djenerated;
   }); 

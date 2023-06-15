@@ -18,4 +18,73 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-color:red;
     color:red;
 }
-  
+app-cart.card.h-100f.card-f {
+    padding:0px;
+    margin:10px;
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4)) !important;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4)) !important;
+    enable-background: new 0 0 512 512 !important;
+    transition: .3s !important;
+}
+
+app-cart.card.h-100f.card-f:hover{
+    transform: scale(1.1) !important;
+}
+
+app-cart.card.h-100f.card-f img {
+    height:160px;
+    object-fit:cover;
+    margin: 2px;
+    width: -webkit-fill-available;
+}
+
+#background_image {
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: cover;
+    pointer-events: none;
+    mask-image: linear-gradient(233deg, black, transparent);
+    -webkit-mask-image: linear-gradient(233deg, black, transparent);
+}
+body{
+    background: black;
+}nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: #838383 !important;
+    background: #ffffff80 !important;
+}
+
+/* f */
+
+app-cards-modal {
+    position: fixed;
+    z-index: 3;
+    right: 10px;
+    top: 64px;
+    width: 350px;
+    height: 400px;
+    overflow: auto;
+    padding: 5px;
+}
+
+app-cards-modal .card {
+    width: 340px !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white; 
+}
