@@ -190,3 +190,9 @@ app-nav-bar {
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4)) !important;
     enable-background: new 0 0 512 512 !important;
 }
+
+app-cards-modal:not(.show) .card{
+    
+    display:none;
+}
+ 

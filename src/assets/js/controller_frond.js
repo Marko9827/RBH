@@ -49,6 +49,14 @@ function emptycard(){
     document.querySelector(`.rounded-pill`).innerHTML = card.length;
     generate_card_js();
 } 
+function showhide(){
+  var d = document.querySelector("app-cards-modal");
+  if(d.classList.contains("show")){
+d.classList.remove("show");
+  } else {
+d.classList.add("show");
+  }
+}
 function generate_card_js(){
   var djenerated = "",
   card_generatorFront = document.querySelector("app-cards-modal");
@@ -59,7 +67,7 @@ function generate_card_js(){
     for (const rijesponse of data) {
        
       djenerated += ` 
-      <div class="card mb-3" data-id="${i}" data-id="${rijesponse.id}"  >
+      <div class="card mb-3" data-int="${i}" data-id="${rijesponse.id}"  >
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="${rijesponse.img}" class="card-img" alt="${rijesponse.title}">
@@ -67,7 +75,7 @@ function generate_card_js(){
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">${rijesponse.title}</h5>
-          
+
            <p class="card-text"><small class="text-muted">${rijesponse.price}</small></p>
         </div>
       </div>
