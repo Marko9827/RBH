@@ -108,7 +108,7 @@ app-cards-modal .card {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: white;
+    background: var(--orange);
 }
 
 /** {
@@ -284,4 +284,42 @@ app-cards-modal .div_card_srcoll {
     display: flex;
 }
 
- 
+app-cards-modal .col-md-4.remove-pr {
+    position: absolute;
+    right: 25px;
+    width: 20px !important;
+    font-size: 20px;
+    z-index: 333;
+    cursor: pointer;
+}@media screen and (max-width: 400px){
+    .card-generatorFront{
+        width:100% !important;
+        margin:0px !important;
+    }
+    section .container {
+    /* padding: 0px !important; */
+}
+
+.card-generatorFront .card {
+    width: -webkit-fill-available !important;
+    margin: 0px;
+    padding: 0px;
+}
+    section .px-4 {
+        margin-top:30px !important;
+    }
+}
+
+button[onclick="showhide()"]:hover {
+    background: var(--orange);
+    color: white !important
+}
+
+button[onclick="showhide()"]:hover i { 
+    color: white !important
+}
+
+button[onclick="showhide()"]:hover .rounded-pill{
+    background:white !important;
+    color:var(--orange) !important;
+}

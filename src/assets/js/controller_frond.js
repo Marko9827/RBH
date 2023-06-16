@@ -1,5 +1,5 @@
 var card = [],
-  API_URL = "https://test.localhost/APP32424259353/"; //"https://app32424259353demo.eronelit.com/api/";
+  API_URL = "/api/"; //"https://app32424259353demo.eronelit.com/api/";
 products = [
   {
     id: "234234",
@@ -18,13 +18,30 @@ document.body.oncontextmenu = function(){
   return false;
 }
 function emptycard_id(idf, fori) {
-  card.pop(fori);
+  card.pop(fori)
   document.querySelector(`.card-f[data-id="${idf}"]`).classList.remove("added");
-
-  generate_card_js(card);
+  document.querySelector(`app-cards-modal .card[data-int="${fori}"]`).remove();
+  // generate_card_js(card);
   document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
     ca.innerHTML = card.length;
   });
+  document.querySelector('app-cards-modal .btn_f').innerHTML = `<span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
+  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span>`;
+  var c  = 0 ;
+  document.querySelectorAll(".pricef").forEach(function(tt){
+    c += parseInt(tt.innerHTML);
+  }); 
+  if(c < 1){
+    var djenerated = `<dcard><i class="bi bi-credit-card"></i>Your card is empty</dcard>`;
+    const card_generatorFront = document.querySelector("app-cards-modal"); 
+    card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
+    card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
+  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
+  
+    document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
+  } else{
+    document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
+  }
 }
 function addTcard(idf) {
   var id = idf.getAttribute("data-id");
@@ -36,7 +53,7 @@ function addTcard(idf) {
       .querySelector(`.card-f[data-id="${id}"] img`)
       .getAttribute("src"),
   });
-  document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
+ // document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
  
   generate_card_js(card);
   document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
@@ -69,6 +86,18 @@ function pricecalc(){
   document.querySelectorAll(".pricef").forEach(function(tt){
     c += parseInt(tt.innerHTML);
   });
+  /*
+  if(c < 1){
+    var djenerated = `<dcard><i class="bi bi-credit-card"></i>Your card is empty</dcard>`;
+    const card_generatorFront = document.querySelector("app-cards-modal"); 
+    card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
+    card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
+  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
+  
+    document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
+  } else{
+    document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
+  }*/
   return c;
 }
 function generate_card_js() {
@@ -77,7 +106,7 @@ function generate_card_js() {
   
   var data = card,
     i = 0;
-  for (const rijesponse of data) {
+  for (var rijesponse of data) {
     djenerated += ` 
       <div class="card mb-3" data-int="${i}" data-id="${rijesponse.id}"  >
     <div class="row no-gutters">
@@ -91,6 +120,9 @@ function generate_card_js() {
            <p class="card-text"><small class="text-muted pricef">${rijesponse.price}</small></p>
         </div>
       </div>
+      <div class="col-md-4 remove-pr">
+      <i class="bi bi-trash" onclick="emptycard_id(${rijesponse.id},${i})"></i>
+    </div>
     </div>
   </div>`;
     i++;
@@ -104,10 +136,10 @@ function regeneratecard_c(djenerated = ""){
   }
   const card_generatorFront = document.querySelector("app-cards-modal"); 
   card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
-  card_generatorFront.innerHTML += `<div class="btn_f"><span><i class="bi bi-trash"></i> Cancel
+  card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
 </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
 const f = document.querySelector(".div_card_srcoll");
-if(card.length < 1){
+if(document.querySelectorAll("app-cards-modal .card").length < 1){
   document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
 } else{
   document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
