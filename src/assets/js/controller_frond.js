@@ -1,19 +1,9 @@
 var card = [],
-  API_URL = "/api/"; //"https://app32424259353demo.eronelit.com/api/";
+  API_URL = ""; //"https://app32424259353demo.eronelit.com/api/";
 products = [
-  {
-    id: "234234",
-    title: "Hanburger",
-    price: "80 - 50",
-    img: "upload/234234/3243243.png",
-  },
-  {
-    id: "234235",
-    title: "Hanburger",
-    price: "80 - 50",
-    img: "upload/234234/3243243.png",
-  },
-];
+  {"id":"234234","title":"H Hanburger","price":"20$","img":                       "/assets/img/234234.png"},
+  {"id":"23424","title":" Pomfrit","price":"10$","img":                           "/assets/img/23424.png"},
+  {"id":"23425","title":" Mix Hanburger + Pomfrit + Cocacola","price":"45$","img":"/assets/img/23425.png"}];
 document.body.oncontextmenu = function(){
   return false;
 }
@@ -150,9 +140,11 @@ function generateCards() {
   var djenerated = "",
     card_generatorFront = document.querySelector(".card-generatorFront");
   card_generatorFront.innerHTML = "";
+  /*
   fetch(API_URL)
     .then((response) => response.json())
-    .then((data) => {
+    .then((data) => {*/
+      var data = products;
       var i = 0;
       for (const rijesponse of data) {
         djenerated += ` 
@@ -175,7 +167,7 @@ function generateCards() {
         i++;
       }
       card_generatorFront.innerHTML = djenerated;
-    });
+ //   });
 }
 
 document.body.onload = function () {
