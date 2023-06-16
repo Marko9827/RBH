@@ -35,7 +35,7 @@ function addTcard(idf) {
       .getAttribute("src"),
   });
   document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
-  console.log(card);
+ 
   generate_card_js(card);
   document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
     ca.innerHTML = card.length;
@@ -62,10 +62,17 @@ function showhide() {
     d.classList.add("show");
   }
 }
+function pricecalc(){
+  var c  = 0 ;
+  document.querySelectorAll(".pricef").forEach(function(tt){
+    c += parseInt(tt.innerHTML);
+  });
+  return c;
+}
 function generate_card_js() {
   var djenerated = "",
     card_generatorFront = document.querySelector("app-cards-modal");
-
+  
   var data = card,
     i = 0;
   for (const rijesponse of data) {
@@ -79,14 +86,16 @@ function generate_card_js() {
         <div class="card-body">
           <h5 class="card-title">${rijesponse.title}</h5>
 
-           <p class="card-text"><small class="text-muted">${rijesponse.price}</small></p>
+           <p class="card-text"><small class="text-muted pricef">${rijesponse.price}</small></p>
         </div>
       </div>
     </div>
   </div>`;
     i++;
   }
-  card_generatorFront.innerHTML = djenerated;
+  card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
+  card_generatorFront.innerHTML += `<div class="btn_f"><span><i class="bi bi-trash"></i> Cancel
+</span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; ;
 }
 function generateCards() {
   var djenerated = "",

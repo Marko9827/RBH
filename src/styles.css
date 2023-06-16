@@ -201,8 +201,45 @@ app-cards-modal  {
     background: white;
     border-radius: 10px;
     overflow-x:hidden;
-    
+    border: 1px solid var(--orange);
     overflow-y:auto;
 }
  
 
+app-cards-modal .btn_f {
+    position: absolute;
+    top: 150px;
+    z-index: 333;
+    background: white;
+    right: 10px;
+    color: red !important;
+    border-top: 1px solid var(--orange);
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: unset;
+    padding: 10px;
+}
+ 
+
+app-cards-modal .div_card_srcoll {
+    right: 0px;
+    width: fit-content;
+    bottom: 30px;
+    top: 0px;
+    display: block;
+    overflow: auto;
+    height: 357px;
+    overflow-x: hidden;
+}
+app-cards-modal .btn_f {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+app-cards-modal .btn_f span{
+    width:100%;
+    text-align: center;
+}
