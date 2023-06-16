@@ -6,6 +6,10 @@
     --orange: #cc8502 !important;
 }
 
+* {
+    user-select: none;
+}
+
 html,
 body {
     height: 100%;
@@ -83,6 +87,7 @@ app-cards-modal {
     height: 400px;
     overflow: auto;
     padding: 5px;
+    min-width: 350px;
 }
 
 app-cards-modal .card {
@@ -242,4 +247,41 @@ app-cards-modal .btn_f {
 app-cards-modal .btn_f span{
     width:100%;
     text-align: center;
+}app-cards-modal .btn_f {
+    padding:4px;
 }
+app-cards-modal .btn_f span{
+    padding:5px;
+}
+app-cards-modal .btn_f span:hover{
+    background: var(--orange);
+    cursor:pointer;
+    border-radius:6px;
+    color:white !important;
+    
+}
+app-cards-modal .btn_f span:hover i {
+    color:white !important;
+}app-cards-modal dcard {
+    display: grid;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+}
+app-cards-modal  dcard i {
+    font-size: 30px;
+    margin-bottom:10px;
+}
+
+app-cards-modal .div_card_srcoll {
+    width: -webkit-fill-available;
+}
+
+.div_card_srcoll {}
+
+.div_card_srcoll.is_emptycard {
+    display: flex;
+}
+
+ 

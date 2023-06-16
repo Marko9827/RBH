@@ -14,7 +14,9 @@ products = [
     img: "upload/234234/3243243.png",
   },
 ];
-
+document.body.oncontextmenu = function(){
+  return false;
+}
 function emptycard_id(idf, fori) {
   card.pop(fori);
   document.querySelector(`.card-f[data-id="${idf}"]`).classList.remove("added");
@@ -93,9 +95,24 @@ function generate_card_js() {
   </div>`;
     i++;
   }
+  regeneratecard_c(djenerated);
+}
+function regeneratecard_c(djenerated = ""){
+  
+  if(djenerated == ""){
+    djenerated = `<dcard><i class="bi bi-credit-card"></i>Your card is empty</dcard>`;
+  }
+  const card_generatorFront = document.querySelector("app-cards-modal"); 
   card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
   card_generatorFront.innerHTML += `<div class="btn_f"><span><i class="bi bi-trash"></i> Cancel
-</span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; ;
+</span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
+const f = document.querySelector(".div_card_srcoll");
+if(card.length < 1){
+  document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
+} else{
+  document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
+
+}
 }
 function generateCards() {
   var djenerated = "",
@@ -131,4 +148,6 @@ function generateCards() {
 
 document.body.onload = function () {
   generateCards();
+  regeneratecard_c("");
+
 };
