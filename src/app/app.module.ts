@@ -20,6 +20,7 @@ const appRoute: Routes = [
   
 ]
 
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,8 @@ const appRoute: Routes = [
   bootstrap: [AppComponent],
 })
 export class AppModule {
+   eronelit_api: String = "https://app32424259353demo.eronelit.com/api/";
+
   http_a(url: '', callback: Function) {
     fetch(url)
       .then((response) => response.json())

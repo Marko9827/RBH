@@ -79,7 +79,7 @@ app-cards-modal {
     z-index: 3;
     right: 10px;
     top: 64px;
-    width: 350px;
+    width: fit-content;
     height: 400px;
     overflow: auto;
     padding: 5px;
@@ -190,9 +190,19 @@ app-nav-bar {
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4)) !important;
     enable-background: new 0 0 512 512 !important;
 }
-
+app-cards-modal:not(.show),
 app-cards-modal:not(.show) .card{
     
     display:none;
 }
  
+
+app-cards-modal  {
+    background: white;
+    border-radius: 10px;
+    overflow-x:hidden;
+    
+    overflow-y:auto;
+}
+ 
+

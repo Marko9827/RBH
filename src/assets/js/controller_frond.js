@@ -1,72 +1,75 @@
- 
 var card = [],
-API_URL = "https://test.localhost/APP32424259353/";
+  API_URL = "https://test.localhost/APP32424259353/"; //"https://app32424259353demo.eronelit.com/api/";
 products = [
-    {
-      "id": "234234",
-      "title": "Hanburger",
-      "price": "80 - 50",
-      "img": "upload/234234/3243243.png"
-    },
-    {
-      "id": "234235",
-      "title": "Hanburger",
-      "price": "80 - 50",
-      "img": "upload/234234/3243243.png"
+  {
+    id: "234234",
+    title: "Hanburger",
+    price: "80 - 50",
+    img: "upload/234234/3243243.png",
+  },
+  {
+    id: "234235",
+    title: "Hanburger",
+    price: "80 - 50",
+    img: "upload/234234/3243243.png",
+  },
+];
+
+function emptycard_id(idf, fori) {
+  card.pop(fori);
+  document.querySelector(`.card-f[data-id="${idf}"]`).classList.remove("added");
+
+  generate_card_js(card);
+  document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
+    ca.innerHTML = card.length;
+  });
+}
+function addTcard(idf) {
+  var id = idf.getAttribute("data-id");
+  card.push({
+    id: id,
+    title: document.querySelector(`.card-f[data-id="${id}"] h5`).innerHTML,
+    price: document.querySelector(`.card-f[data-id="${id}"] span`).innerHTML,
+    img: document
+      .querySelector(`.card-f[data-id="${id}"] img`)
+      .getAttribute("src"),
+  });
+  document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
+  console.log(card);
+  generate_card_js(card);
+  document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
+    ca.innerHTML = card.length;
+  });
+}
+function cardcardsdjenerator(j = []) {}
+function emptycard() {
+  card = [];
+  document.querySelectorAll(`.card-f`).forEach(function (f) {
+    if (f.classList.contains("added")) {
+      f.classList.remove("added");
     }
-  ];  
-  function emptycard_id(idf, fori ){
-    card.pop(fori);
-    document.querySelector(`.card-f[data-id="${idf}"]`).classList.remove("added");
- 
-   generate_card_js(card);    
-   document.querySelector(`.rounded-pill`).innerHTML = card.length;
-  }
-  function addTcard(idf){
-    var id = idf.getAttribute("data-id");
-    card.push({
-        "id":id,
-        "title":document.querySelector(`.card-f[data-id="${id}"] h5`).innerHTML,
-        "price": document.querySelector(`.card-f[data-id="${id}"] span`).innerHTML,
-        "img":document.querySelector(`.card-f[data-id="${id}"] img`).getAttribute("src"),
-    });
-    document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
-     console.log(card);
-    generate_card_js(card);    
-    document.querySelector(`.rounded-pill`).innerHTML = card.length;
-
-  }
-  function cardcardsdjenerator(j = []){
-
-  }
-function emptycard(){
-    card = [];
-    document.querySelectorAll(`.card-f`).forEach(function(f){
-        if(f.classList.contains("added")){
-             f.classList.remove("added");
-        }
-    });
-    document.querySelector(`.rounded-pill`).innerHTML = card.length;
-    generate_card_js();
-} 
-function showhide(){
+  });
+  document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
+    ca.innerHTML = card.length;
+  });
+  generate_card_js();
+}
+function showhide() {
   var d = document.querySelector("app-cards-modal");
-  if(d.classList.contains("show")){
-d.classList.remove("show");
+  if (d.classList.contains("show")) {
+    d.classList.remove("show");
   } else {
-d.classList.add("show");
+    d.classList.add("show");
   }
 }
-function generate_card_js(){
+function generate_card_js() {
   var djenerated = "",
-  card_generatorFront = document.querySelector("app-cards-modal");
-  
+    card_generatorFront = document.querySelector("app-cards-modal");
 
-    var data = card,
+  var data = card,
     i = 0;
-    for (const rijesponse of data) {
-       
-      djenerated += ` 
+  for (const rijesponse of data) {
+    djenerated += ` 
       <div class="card mb-3" data-int="${i}" data-id="${rijesponse.id}"  >
     <div class="row no-gutters">
       <div class="col-md-4">
@@ -81,22 +84,20 @@ function generate_card_js(){
       </div>
     </div>
   </div>`;
- i++;
-    }
-    card_generatorFront.innerHTML = djenerated;
-  
+    i++;
+  }
+  card_generatorFront.innerHTML = djenerated;
 }
-function generateCards(){ 
+function generateCards() {
   var djenerated = "",
-  card_generatorFront = document.querySelector(".card-generatorFront");
-  card_generatorFront.innerHTML = '';
-  fetch(API_URL).then((response) => response.json())
-  .then((data) => {
- 
- var i = 0;   
-    for (const rijesponse of data) {
-       
-      djenerated += ` 
+    card_generatorFront = document.querySelector(".card-generatorFront");
+  card_generatorFront.innerHTML = "";
+  fetch(API_URL)
+    .then((response) => response.json())
+    .then((data) => {
+      var i = 0;
+      for (const rijesponse of data) {
+        djenerated += ` 
       <app-cart class="card h-100f card-f"   data-id="${rijesponse.id}"  >
  
           <img class="card-img-top" src="${API_URL}${rijesponse.img}"  alt="${rijesponse.title}" /> 
@@ -113,13 +114,12 @@ function generateCards(){
   
           </div>
       </app-cart>`;
-      i++;
-    }
-    card_generatorFront.innerHTML = djenerated;
-  }); 
+        i++;
+      }
+      card_generatorFront.innerHTML = djenerated;
+    });
 }
-  
- document.body.onload = function(){
-  
-generateCards();
- }
+
+document.body.onload = function () {
+  generateCards();
+};
