@@ -15,6 +15,13 @@ products = [
       "img": "upload/234234/3243243.png"
     }
   ];  
+  function emptycard_id(idf, fori ){
+    card.pop(fori);
+    document.querySelector(`.card-f[data-id="${idf}"]`).classList.remove("added");
+ 
+   generate_card_js(card);    
+   document.querySelector(`.rounded-pill`).innerHTML = card.length;
+  }
   function addTcard(idf){
     var id = idf.getAttribute("data-id");
     card.push({
@@ -47,12 +54,12 @@ function generate_card_js(){
   card_generatorFront = document.querySelector("app-cards-modal");
   
 
-    var data = card;
-    
+    var data = card,
+    i = 0;
     for (const rijesponse of data) {
        
       djenerated += ` 
-      <div class="card mb-3" data-id="${rijesponse.id}"  >
+      <div class="card mb-3" data-id="${i}" data-id="${rijesponse.id}"  >
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="${rijesponse.img}" class="card-img" alt="${rijesponse.title}">
@@ -60,11 +67,13 @@ function generate_card_js(){
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">${rijesponse.title}</h5>
+          
            <p class="card-text"><small class="text-muted">${rijesponse.price}</small></p>
         </div>
       </div>
     </div>
   </div>`;
+ i++;
     }
     card_generatorFront.innerHTML = djenerated;
   
@@ -76,7 +85,7 @@ function generateCards(){
   fetch(API_URL).then((response) => response.json())
   .then((data) => {
  
-    
+ var i = 0;   
     for (const rijesponse of data) {
        
       djenerated += ` 
@@ -92,10 +101,11 @@ function generateCards(){
         
           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div class="text-center"><a class="btn btn-outline-dark mt-auto"   href="#" onclick="addTcard(this)" data-id="${rijesponse.id}"     >Add to card</a></div>
-              <div class="text-center btn-remove-card"><a class="  btn btn-outline-dark mt-auto"   href="#" onclick="emptycard()" data-id="${rijesponse.id}"     >Remove from card</a></div>
+              <div class="text-center btn-remove-card"><a class="  btn btn-outline-dark mt-auto"   href="#" onclick="emptycard_id(${rijesponse.id},${i})" data-id="${rijesponse.id}"     >Remove from card</a></div>
   
           </div>
       </app-cart>`;
+      i++;
     }
     card_generatorFront.innerHTML = djenerated;
   }); 
