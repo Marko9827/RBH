@@ -323,3 +323,7 @@ button[onclick="showhide()"]:hover .rounded-pill{
     background:white !important;
     color:var(--orange) !important;
 }
+
+img{
+    pointer-events: none ;
+}
