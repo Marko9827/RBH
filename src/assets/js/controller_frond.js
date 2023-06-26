@@ -1,35 +1,53 @@
 var card = [],
   API_URL = ""; //"https://app32424259353demo.eronelit.com/api/";
 products = [
-  {"id":"234234","title":"H Hanburger","price":"20$","img":                       "/assets/img/234234.png"},
-  {"id":"23424","title":" Pomfrit","price":"10$","img":                           "/assets/img/23424.png"},
-  {"id":"23425","title":" Mix Hanburger + Pomfrit + Cocacola","price":"45$","img":"/assets/img/23425.png"}];
-document.body.oncontextmenu = function(){
+  {
+    id: "234234",
+    title: "H Hanburger",
+    price: "20$",
+    img: "/assets/img/234234.png",
+  },
+  {
+    id: "23424",
+    title: " Pomfrit",
+    price: "10$",
+    img: "/assets/img/23424.png",
+  },
+  {
+    id: "23425",
+    title: " Mix Hanburger + Pomfrit + Cocacola",
+    price: "45$",
+    img: "/assets/img/23425.png",
+  },
+];
+document.body.oncontextmenu = function () {
   return false;
-}
+};
 function emptycard_id(idf, fori) {
-  card.pop(fori)
+  card.pop(fori);
   document.querySelector(`.card-f[data-id="${idf}"]`).classList.remove("added");
   document.querySelector(`app-cards-modal .card[data-int="${fori}"]`).remove();
   // generate_card_js(card);
   document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
     ca.innerHTML = card.length;
   });
-  document.querySelector('app-cards-modal .btn_f').innerHTML = `<span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
+  document.querySelector(
+    "app-cards-modal .btn_f"
+  ).innerHTML = `<span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
   </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span>`;
-  var c  = 0 ;
-  document.querySelectorAll(".pricef").forEach(function(tt){
+  var c = 0;
+  document.querySelectorAll(".pricef").forEach(function (tt) {
     c += parseInt(tt.innerHTML);
-  }); 
-  if(c < 1){
+  });
+  if (c < 1) {
     var djenerated = `<dcard><i class="bi bi-credit-card"></i>Your card is empty</dcard>`;
-    const card_generatorFront = document.querySelector("app-cards-modal"); 
+    const card_generatorFront = document.querySelector("app-cards-modal");
     card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
     card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
-  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
-  
+  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`;
+
     document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
-  } else{
+  } else {
     document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
   }
 }
@@ -43,8 +61,8 @@ function addTcard(idf) {
       .querySelector(`.card-f[data-id="${id}"] img`)
       .getAttribute("src"),
   });
- // document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
- 
+  // document.querySelector(`.card-f[data-id="${id}"]`).classList.add("added");
+
   generate_card_js(card);
   document.querySelectorAll(`.rounded-pill`).forEach(function (ca) {
     ca.innerHTML = card.length;
@@ -71,9 +89,9 @@ function showhide() {
     d.classList.add("show");
   }
 }
-function pricecalc(){
-  var c  = 0 ;
-  document.querySelectorAll(".pricef").forEach(function(tt){
+function pricecalc() {
+  var c = 0;
+  document.querySelectorAll(".pricef").forEach(function (tt) {
     c += parseInt(tt.innerHTML);
   });
   /*
@@ -93,7 +111,7 @@ function pricecalc(){
 function generate_card_js() {
   var djenerated = "",
     card_generatorFront = document.querySelector("app-cards-modal");
-  
+
   var data = card,
     i = 0;
   for (var rijesponse of data) {
@@ -119,22 +137,20 @@ function generate_card_js() {
   }
   regeneratecard_c(djenerated);
 }
-function regeneratecard_c(djenerated = ""){
-  
-  if(djenerated == ""){
+function regeneratecard_c(djenerated = "") {
+  if (djenerated == "") {
     djenerated = `<dcard><i class="bi bi-credit-card"></i>Your card is empty</dcard>`;
   }
-  const card_generatorFront = document.querySelector("app-cards-modal"); 
+  const card_generatorFront = document.querySelector("app-cards-modal");
   card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
   card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
-</span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
-const f = document.querySelector(".div_card_srcoll");
-if(document.querySelectorAll("app-cards-modal .card").length < 1){
-  document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
-} else{
-  document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
-
-}
+</span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`;
+  const f = document.querySelector(".div_card_srcoll");
+  if (document.querySelectorAll("app-cards-modal .card").length < 1) {
+    document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
+  } else {
+    document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
+  }
 }
 function generateCards() {
   var djenerated = "",
@@ -144,10 +160,10 @@ function generateCards() {
   fetch(API_URL)
     .then((response) => response.json())
     .then((data) => {*/
-      var data = products;
-      var i = 0;
-      for (const rijesponse of data) {
-        djenerated += ` 
+  var data = products;
+  var i = 0;
+  for (const rijesponse of data) {
+    djenerated += ` 
       <app-cart class="card h-100f card-f"   data-id="${rijesponse.id}"  >
  
           <img class="card-img-top" src="${API_URL}${rijesponse.img}"  alt="${rijesponse.title}" /> 
@@ -164,14 +180,13 @@ function generateCards() {
   
           </div>
       </app-cart>`;
-        i++;
-      }
-      card_generatorFront.innerHTML = djenerated;
- //   });
+    i++;
+  }
+  card_generatorFront.innerHTML = djenerated;
+  //   });
 }
 
 document.body.onload = function () {
   generateCards();
   regeneratecard_c("");
-
 };

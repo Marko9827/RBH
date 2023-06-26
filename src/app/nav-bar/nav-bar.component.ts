@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+ 
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
- $r = 0;
+  constructor() {
+    
+  }
+
 }

@@ -9,13 +9,12 @@ import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeFoodSliderComponent } from './home-food-slider/home-food-slider.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component'; 
 import { MatCardModule } from '@angular/material/card';
 import { ProductsCardsComponent } from './products-cards/products-cards.component';
 import { Routes } from '@angular/router';
 import { CardsModalComponent } from './cards-modal/cards-modal.component';
-
-const appRoute: Routes = [
+ const appRoute: Routes = [
   {path: 'Home', component: AppComponent},
   
 ]

@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './cards-modal.component.html',
   styleUrls: ['./cards-modal.component.css']
 })
-export class CardsModalComponent {
-
+export class CardsModalComponent { 
 }

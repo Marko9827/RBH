@@ -10,4 +10,6 @@
     border-color:red;
     color:red;
 }
-  
+img {
+    pointer-events: none;
+}
