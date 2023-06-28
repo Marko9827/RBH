@@ -197,4 +197,9 @@ document.body.onload = function () {
    generateCards();
   regeneratecard_c("");
 };
-
+setTimeout(function(){
+  generateCards();
+  regeneratecard_c("");
+},2000);
+generateCards();
+regeneratecard_c("");

@@ -5,6 +5,12 @@ If you installed docker!
 
 If not go to: https://docs.docker.com/get-docker/ and follow instructions...
 
+![alt text](./preview1.png)
+
+![alt text](./preview2.png)
+ 
+
+
 ```
 RBH
 ├─ .angular
