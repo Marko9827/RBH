@@ -1,8 +1,30 @@
-<app-nav-bar></app-nav-bar> 
+<app-nav-bar></app-nav-bar>
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
-    <div
-      class="card-generatorFront row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-     </div>
+    <div class="card-generatorFront row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+    
+    
+    >
+
+    <app-cart *ngFor="let rijesponse as cardsItem3" class="card h-100f card-f" data-id="{{rijesponse.id}}">
+
+      <img class="card-img-top" src="{{rijesponse.img}}" alt="{{rijesponse.title}}" />
+      <div class="card-body p-4">
+          <div class="text-center">
+              <h5 class="fw-bolder">{{rijesponse.title}}</h5>
+              <span>{{rijesponse.price}}</span>
+          </div>
+      </div>
+  
+      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#" onclick="addTcard(this)"
+                  data-id="{{rijesponse.id}}">Add to card</a></div>
+          <div class="text-center btn-remove-card"><a class="  btn btn-outline-dark mt-auto" href="#"
+                  data-id="{{rijesponse.id}}">Remove from card</a>
+          </div>
+      </div>
+  </app-cart>
+
+  </div>
   </div>
 </section>

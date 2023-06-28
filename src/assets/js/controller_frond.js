@@ -1,3 +1,5 @@
+
+
 var card = [],
   API_URL = ""; //"https://app32424259353demo.eronelit.com/api/";
 products = [
@@ -34,7 +36,7 @@ function emptycard_id(idf, fori) {
   document.querySelector(
     "app-cards-modal .btn_f"
   ).innerHTML = `<span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
-  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span>`;
+  </span><span ><i  onclick="paymodal();"  class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span>`;
   var c = 0;
   document.querySelectorAll(".pricef").forEach(function (tt) {
     c += parseInt(tt.innerHTML);
@@ -44,14 +46,19 @@ function emptycard_id(idf, fori) {
     const card_generatorFront = document.querySelector("app-cards-modal");
     card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
     card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
-  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`;
+  </span><span ><i onclick="paymodal();"  class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`;
 
     document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
   } else {
     document.querySelector(".div_card_srcoll").classList.remove("is_emptycard");
   }
 }
+function paymodal(){
+  alert("Payed");
+}
 function addTcard(idf) {
+  
+  alert("Added to your card")
   var id = idf.getAttribute("data-id");
   card.push({
     id: id,
@@ -100,7 +107,7 @@ function pricecalc() {
     const card_generatorFront = document.querySelector("app-cards-modal"); 
     card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
     card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
-  </span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
+  </span><span ><i onclick="paymodal();"  class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`; 
   
     document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
   } else{
@@ -144,7 +151,7 @@ function regeneratecard_c(djenerated = "") {
   const card_generatorFront = document.querySelector("app-cards-modal");
   card_generatorFront.innerHTML = `<div class="div_card_srcoll">${djenerated}</div>`;
   card_generatorFront.innerHTML += `<div class="btn_f"><span onclick="showhide()"><i class="bi bi-trash"></i> Cancel
-</span><span ><i class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`;
+</span><span ><i onclick="paymodal();"  class="bi bi-credit-card"></i> Pay - $${pricecalc()}</span></div>`;
   const f = document.querySelector(".div_card_srcoll");
   if (document.querySelectorAll("app-cards-modal .card").length < 1) {
     document.querySelector(".div_card_srcoll").classList.add("is_emptycard");
@@ -187,6 +194,7 @@ function generateCards() {
 }
 
 document.body.onload = function () {
-  generateCards();
+   generateCards();
   regeneratecard_c("");
 };
+

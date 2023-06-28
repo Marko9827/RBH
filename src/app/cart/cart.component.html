@@ -1,21 +1,18 @@
-<div class="col mb-5  " *ngFor="let prod of products">
-    <div class="card h-100 card-f" data-id="{{prod.id}}"   >
-        <!-- Product image-->
-        <img class="card-img-top" [src]="imagetobase64(prod.img)"  alt="..." />
-        <!-- Product details-->
-        <div class="card-body p-4">
-            <div class="text-center">
-                <!-- Product name-->
-                <h5  class="fw-bolder">{{prod.title}}</h5>
-                <!-- Product price-->
-               <span>{{prod.price}}</span>
-            </div>
-        </div>
-        <!-- Product actions-->
-        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto"   href="#" onclick="addTcard(this)" data-id="{{prod.id}}"     >Add to card</a></div>
-            <div class="text-center btn-remove-card"><a class="  btn btn-outline-dark mt-auto"   href="#" onclick="emptycard()" data-id="{{prod.id}}"     >Remove from card</a></div>
+<app-cart *ngFor="let rijesponse as cardsItem3" class="card h-100f card-f" data-id="{{rijesponse.id}}">
 
+    <img class="card-img-top" src="{{rijesponse.img}}" alt="{{rijesponse.title}}" />
+    <div class="card-body p-4">
+        <div class="text-center">
+            <h5 class="fw-bolder">{{rijesponse.title}}</h5>
+            <span>{{rijesponse.price}}</span>
         </div>
     </div>
-</div>
+
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#" onclick="addTcard(this)"
+                data-id="{{rijesponse.id}}">Add to card</a></div>
+        <div class="text-center btn-remove-card"><a class="  btn btn-outline-dark mt-auto" href="#"
+                data-id="{{rijesponse.id}}">Remove from card</a>
+        </div>
+    </div>
+</app-cart>

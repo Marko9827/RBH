@@ -1,0 +1,23 @@
+[
+    {
+        "i": "0",
+        "id": "234234",
+        "title": "H Hanburger",
+        "price": "20$",
+        "img": "/assets/img/234234.png"
+    },
+    {
+        "i": "1",
+        "id": "23424",
+        "title": " Pomfrit",
+        "price": "10$",
+        "img": "/assets/img/23424.png"
+    },
+    {
+        "i": "2",
+        "id": "23425",
+        "title": " Mix Hanburger + Pomfrit + Cocacola",
+        "price": "45$",
+        "img": "/assets/img/23425.png"
+    }
+]
